@@ -183,7 +183,7 @@ SingleList& SingleList::operator++(){
           push_back(7);
           return *this;
 }
-SingleList SingleList::operator++(int x){
+SingleList SingleList::operator++(int){
            SingleList tmp = *this;
            push_back(7);
            return tmp;
@@ -194,7 +194,7 @@ SingleList& SingleList::operator--(){
           return *this;
 }
 
-SingleList SingleList::operator--(int x){
+SingleList SingleList::operator--(int){
            SingleList tmp = *this;
            pop_back();
            return tmp;

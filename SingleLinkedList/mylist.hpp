@@ -31,9 +31,9 @@ class SingleList{
            friend std::istream& operator>>(std::istream& is, SingleList& l);
            bool operator!()const;
            SingleList& operator++();
-           SingleList operator++(int x);
+           SingleList operator++(int);
            SingleList& operator--();
-           SingleList operator--(int x);
+           SingleList operator--(int);
            operator bool()const;
            operator std::vector<int>()const;
            void push_front(int _val);
