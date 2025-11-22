@@ -6,7 +6,17 @@
 #include <string>
 
 enum class Kind{
-     Animal,Mammal,Bird,Reptile,Lion,Tiger,Elephant,Eagle,Parrot,Snake,Crocodile
+    Animal,
+    Mammal,
+    Bird,
+    Reptile,
+    Lion,
+    Tiger,
+    Elephant,
+    Eagle,
+    Parrot,
+    Snake,
+    Crocodile
 };
 
 class Animal;
@@ -19,26 +29,32 @@ class Counter{
 class IFly{
     public:
         virtual void fly() const = 0;
+        virtual ~IFly() {}
 };
 
 class ISwim{
     public:
         virtual void swim() const = 0;
+        virtual ~ISwim() {}
+
 };
 
 class IWalk{
     public:
         virtual void walk() const = 0;
+        virtual ~IWalk() {}
 };
 
 class IVoice{
     public:
         virtual void make_sound() const  = 0;
+        virtual ~IVoice() {}
 };
 
 class IFeedable{
     public:
         virtual void feed() = 0;
+        virtual ~IFeedable() {}
 };
 
 
@@ -56,6 +72,7 @@ class Animal{
            Kind KindOf() const { return _kind; }
            int Id() const { return id; }
            void takeID() { id = ++Counter::_id; }
+           virtual ~Animal() {}
 };
 
 class Mammal : public Animal{
@@ -63,7 +80,8 @@ class Mammal : public Animal{
             bool warmBlooded;
     public:
             Mammal(const std::string& n, Kind k):Animal(n,k), warmBlooded{true}{}
-            virtual void Print() const override { std::cout << "This is mammal" << std::endl; }          
+            virtual void Print() const override { std::cout << "This is mammal" << std::endl; }   
+            virtual ~Mammal() {}       
 };
 
 class Bird : public Animal{
@@ -71,8 +89,8 @@ class Bird : public Animal{
             double wingSpan;
     public:
            Bird(const std::string& n, Kind k,double w = 20.0): Animal(n,k), wingSpan{w} {}
-           virtual void Print() const override { std::cout << "This is bird" << std::endl; }          
-
+           virtual void Print() const override { std::cout << "This is bird" << std::endl; } 
+           virtual ~Bird() {}        
 };
 
 class Reptile : public Animal{
@@ -80,7 +98,8 @@ class Reptile : public Animal{
             bool coldBlooded;
     public:
             Reptile(const std::string& n, Kind k):Animal(n,k), coldBlooded{true} {}
-            virtual void Print() const override { std::cout << "This is reptile" << std::endl; }               
+            virtual void Print() const override { std::cout << "This is reptile" << std::endl; }   
+            virtual ~Reptile() {}            
 };
 
 #endif

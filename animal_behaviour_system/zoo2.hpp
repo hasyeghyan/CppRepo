@@ -11,6 +11,7 @@ class Lion final : public Mammal, public IWalk, public IVoice, public IFeedable 
             virtual void walk() const override {std::cout << "Lion walks" << std::endl;}
             virtual void make_sound() const override {std::cout << "Lion roars with power " << roarPower << std::endl; } 
             virtual void feed() override;
+            virtual ~Lion() {}
 };
 
 class Tiger final : public Mammal, public IWalk, public IVoice, public IFeedable {
@@ -23,6 +24,7 @@ class Tiger final : public Mammal, public IWalk, public IVoice, public IFeedable
             virtual void walk() const override {std::cout << "Tiger walks" << std::endl;}
             virtual void make_sound() const override {std::cout << "Tiger makes sound" << std::endl; } 
             virtual void feed() override;
+            virtual ~Tiger() {}
 };
 
 class Elephant final : public Mammal,public IWalk, public IVoice, public IFeedable {
@@ -35,6 +37,7 @@ class Elephant final : public Mammal,public IWalk, public IVoice, public IFeedab
             virtual void walk() const override {std::cout << "Elephant walks" << std::endl;}
             virtual void make_sound() const override {std::cout << "Elephant makes sound" << std::endl; } 
             virtual void feed() override;
+            virtual ~Elephant() {}
 };
 
 class Eagle final : public Bird,public IFly, public IWalk, public IVoice, public IFeedable {
@@ -48,6 +51,7 @@ class Eagle final : public Bird,public IFly, public IWalk, public IVoice, public
             virtual void walk() const override {std::cout << "Eagle walks" << std::endl;}
             virtual void make_sound() const override {std::cout << "Eagle makes sound" << std::endl; } 
             virtual void feed() override;
+            virtual ~Eagle() {}
 };
 
 class Parrot final : public Bird, public IFly, public IWalk, public IVoice, public IFeedable {
@@ -60,6 +64,7 @@ class Parrot final : public Bird, public IFly, public IWalk, public IVoice, publ
             virtual void walk() const override {std::cout << "Parrot walks" << std::endl;}
             virtual void make_sound() const override; 
             virtual void feed() override;
+            virtual ~Parrot() {}
 };
 
 class Snake final : public Reptile, public IWalk, public IVoice, public IFeedable {
@@ -71,6 +76,7 @@ class Snake final : public Reptile, public IWalk, public IVoice, public IFeedabl
             virtual void walk() const override {std::cout << "Snake crawls" << std::endl;}
             virtual void make_sound() const override {std::cout << "Snake is doing hssss" <<std::endl;} 
             virtual void feed() override;
+            virtual ~Snake() {}
 };
 
 class Crocodile final : public Reptile, public IWalk, public ISwim, public IVoice, public IFeedable {
@@ -84,6 +90,7 @@ class Crocodile final : public Reptile, public IWalk, public ISwim, public IVoic
             virtual void swim() const override {std::cout << "Crocodile swims" << std::endl;}
             virtual void make_sound() const override {std::cout << "Crocodile makes voice" <<std::endl;} 
             virtual void feed() override;
+            virtual ~Crocodile() {}
 };
 
 #endif
