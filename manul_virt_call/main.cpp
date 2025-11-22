@@ -1,20 +1,15 @@
 #include "man.hpp"
 
 int main() {
-    Derived d;
+    Derived obj;
+    void*** vptr= (void***)&obj;
 
-    using F = void(*)(void*);
+    using Fn = void(*)(void*);
 
-   
-    void** vptr = *(void***)&d;
-
-  
-    F f0 = (F)vptr[0];
-    F f1 = (F)vptr[1];
-
-  
-    f0(&d);  
-    f1(&d);  
+    Fn f1 = (Fn)(*vptr)[0];
+    Fn f2 = (Fn)(*vptr)[1];
+    f1(&obj);
+    f2(&obj);
 
     return 0;
 }
