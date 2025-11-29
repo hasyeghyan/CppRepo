@@ -11,7 +11,7 @@ class Virtualizable {
         using Fnptr = void (Virtualizable::*)();
         void registerVirtual(const std::string& name, Fnptr fn);
         void callVirtual(const std::string& name);
-        std::string getTypeName(){
+        std::string getTypeid() {
             return _typeid;
         }
     protected:
@@ -49,10 +49,11 @@ class Derived : public Base {
 
 template<typename T>
 T* dynamicCast(Virtualizable* type){
-    if(type->getTypeName() == T::getTypeName()){
+    if(type->getTypeid() == T::getTypeName()){
       return (T*)type;
     }
-   return nullptr;
+
+    return nullptr;
 }
 
 
