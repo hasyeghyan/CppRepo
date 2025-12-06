@@ -1,5 +1,5 @@
-#ifndef SH_CPP
-#define SH_CPP
+#ifndef SH_HPP
+#define SH_HPP
 
 #include <iostream>
 
