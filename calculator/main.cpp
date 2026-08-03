@@ -46,7 +46,12 @@ double safe_mul(double x, double y){
 
 double safe_divide(double x, double y){
     if(y == 0) throw std::domain_error("Cant divide by 0");
-    if(std::abs(x) < std::numeric_limits<double>::min() * std::abs(y)){
+    if (x == 0) return 0;
+    if (abs_x / std::numeric_limits<double>::max() > abs_y) {
+        throw std::overflow_error("overflow");
+    }
+
+    if (abs_x / std::numeric_limits<double>::min() < abs_y) {
         throw std::underflow_error("underflow");
     }
     std::cout << "Division result is ";
