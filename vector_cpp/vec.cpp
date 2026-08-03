@@ -134,11 +134,10 @@ std::istream& operator>>(std::istream& c, VecInt& r){
 bool operator<(const VecInt& c,const VecInt& oth){
     int min = c.size < oth.size ? c.size : oth.size;
     for(int i{}; i < min; ++i){
-        if(c.data[i] >= oth.data[i]){
-            return false;
-        }
+        if (c.data[i] > oth.data[i]) return false;
+        else if (c.data[i] < oth.data[i]) return true;
     }
-    return true;
+    return c.size < oth.size;
 }
 bool operator<=(const VecInt& c,const VecInt& oth){
      return !(oth < c);
