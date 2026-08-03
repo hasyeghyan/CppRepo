@@ -34,8 +34,8 @@ double safe_sub(double x, double y){
 }
 
 double safe_mul(double x, double y){
-    if(y == 0) return 0;
-    if(x > std::numeric_limits<double>::max() / y){
+    if(y == 0 || x == 0) return 0;
+    if(std::abs(x) > std::numeric_limits<double>::max() / std::abs(y)){
         throw std::overflow_error("overflow");
     }
     std::cout << "Multiplication result is ";
@@ -46,8 +46,8 @@ double safe_mul(double x, double y){
 
 double safe_divide(double x, double y){
     if(y == 0) throw std::domain_error("Cant divide by 0");
-    if(x < std::numeric_limits<double>::min() * y){
-        throw std::overflow_error("overflow");
+    if(std::abs(x) < std::numeric_limits<double>::min() * std::abs(y)){
+        throw std::underflow_error("underflow");
     }
     std::cout << "Division result is ";
     _round(x / y);
