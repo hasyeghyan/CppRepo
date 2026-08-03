@@ -68,7 +68,6 @@ void CoffeeShop::removeDrink(const std::string& drinkName){
         bool flag = false;
         for(int i{}; i < menu.size(); ++i){
            if(menu[i] -> getName() == drinkName){
-                delete menu[i];
                 menu.erase(menu.begin() + i);
                 flag = true;
                 --i;
@@ -90,7 +89,6 @@ void CoffeeShop::fireBarista(Barista* barista){
         bool flag = false;
         for(int i{}; i < baristas.size(); ++i){
            if(baristas[i]->getName() == barista->getName()){
-              delete[] baristas[i];
               baristas.erase(baristas.begin() + i);
               --i;
               flag = true;
