@@ -13,7 +13,13 @@ double _round(double res){
 
 
 double safe_add(double x, double y){
-    if(x > std::numeric_limits<double>::max() - y){
+    double max_val = std::numeric_limits<double>::max();
+    
+    if (y > 0 && x > max_val - y) {
+        throw std::overflow_error("overflow");
+    }
+
+    if (y < 0 && x < -max_val - y) {
         throw std::overflow_error("overflow");
     }
     std::cout << "Addition result is ";
@@ -24,8 +30,14 @@ double safe_add(double x, double y){
 }
 
 double safe_sub(double x, double y){
-    if(x < std::numeric_limits<double>::min() + y){
-        throw std::underflow_error("underflow");
+   double max_val = std::numeric_limits<double>::max();
+
+    if (y > 0 && x < -max_val + y) {
+        throw std::overflow_error("overflow");
+    }
+    
+    if (y < 0 && x > max_val + y) {
+        throw std::overflow_error("overflow");
     }
     std::cout << "Sub result is ";
     _round(x - y);
@@ -47,12 +59,12 @@ double safe_mul(double x, double y){
 double safe_divide(double x, double y){
     if(y == 0) throw std::domain_error("Cant divide by 0");
     if (x == 0) return 0;
-    if (abs_x / std::numeric_limits<double>::max() > abs_y) {
-        throw std::overflow_error("overflow");
-    }
+    
+    double abs_x = std::abs(x);
+    double abs_y = std::abs(y);
 
-    if (abs_x / std::numeric_limits<double>::min() < abs_y) {
-        throw std::underflow_error("underflow");
+    if (abs_x > std::numeric_limits<double>::max() / abs_y) {
+        throw std::overflow_error("overflow");
     }
     std::cout << "Division result is ";
     _round(x / y);
