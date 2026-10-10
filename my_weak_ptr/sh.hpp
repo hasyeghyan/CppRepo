@@ -206,7 +206,7 @@ bool operator>=(const sh_ptr<T>& l,const sh_ptr<T>& r){
 template <typename T>
 std::ostream& operator<<(std::ostream& ost, const sh_ptr<T>& oth){
     if(oth.get() == nullptr) {ost << "Data is nullptr" << std::endl;}
-    else {ost << *oth;}
+    else {ost << oth.data;}
     if(oth.cb == nullptr) {ost << "CB is nullptr" << std::endl;}
     else {ost << oth.cb->get_strong();}
     return ost;
