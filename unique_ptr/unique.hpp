@@ -140,7 +140,7 @@ bool operator>=(const u_ptr<T>& l,const u_ptr<T>& r){
 template <typename T>
 std::ostream& operator<<(std::ostream& ost, const u_ptr<T>& oth){
     if(oth.get() == nullptr) {ost << "This is nullptr" << std::endl; return ost;}
-    ost << *oth;
+    ost << oth.data;
     return ost;
 }
 
