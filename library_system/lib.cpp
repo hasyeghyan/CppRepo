@@ -100,6 +100,7 @@ void Library::count(std::string name){
          for(int k{}; k < shelves[i].get()->getbooks()[j].get()->getauthors().size(); ++k){
             if(shelves[i].get()->getbooks()[j].get()->getauthors()[k].get()->getname() == name){      
                std::cout  << shelves[i].get()->getbooks()[j].get()->getauthors()[k].use_count() << "books have the same author" << std::endl;
+               return;
             }
          }
       }
