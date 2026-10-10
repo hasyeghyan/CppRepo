@@ -124,7 +124,6 @@ void sh_ptr<T>::reset(T* ptr) noexcept{
     data = ptr;
     if(ptr){
         cb = new CB<T>();
-        cb->increment(); 
     }
     else {
         cb = nullptr;
