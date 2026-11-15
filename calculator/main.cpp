@@ -63,7 +63,7 @@ double safe_divide(double x, double y){
     double abs_x = std::abs(x);
     double abs_y = std::abs(y);
 
-    if (abs_x > std::numeric_limits<double>::max() / abs_y) {
+    if (abs_x > std::numeric_limits<double>::max() * abs_y) {
         throw std::overflow_error("overflow");
     }
     std::cout << "Division result is ";
